@@ -28,7 +28,8 @@ JOIN invoice AS i ON c.customer_id = i.customer_id
 GROUP BY c.first_name, c.last_name
 ORDER BY "Total Amount" DESC;
 
---Q6----
+--Q6----Write query to return the email, first name, last name, & Genre of all Rock Music 
+--listeners. Return your list ordered alphabetically by email starting with A
 
 select c.email,c.first_name,c.last_name from customer As c
 
@@ -42,7 +43,8 @@ where track_id in (
 )
 Order by email; 
 
----Q7 
+---Q7  Let's invite the artists who have written the most rock music in our dataset. Write a 
+--query that returns the Artist name and total track count of the top 10 rock bands
 
 select artist.artist_id , artist.name , count(artist.artist_id) as "No of Songs"
 from track
@@ -67,7 +69,7 @@ select avg(milliseconds) AS "Avg Millisecond" from track
 order by milliseconds desc
 
 
---Q9Find how much amount spent by each customer on artists? Write a query to return
+--Q9 Find how much amount spent by each customer on artists? Write a query to return
 --customer name, artist name and total spent
 
 select c.first_name ,c.last_name , artist.name , sum(invoice.total)  as "Amount Spent"
